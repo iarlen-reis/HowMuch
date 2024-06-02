@@ -5,6 +5,10 @@
   animation: menu 0.3s ease-in-out;
 }
 
+body {
+  @apply font-sora tracking-widest;
+}
+
 @keyframes menu {
   0% {
       left: -100%;
