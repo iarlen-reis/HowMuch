@@ -1,27 +1,22 @@
 <script setup lang="ts">
   import { defineProps } from 'vue'
 
-  defineProps({
-    total: {
-      type: Number,
-      default: 0
-    },
-    title: {
-      type: String,
-    },
-    isCurrent: {
-      type: Boolean,
-      default: false
-    }
-  })
+  interface Props {
+    total: number
+    title: string
+    isCurrent: boolean
+    url: string
+  }
+
+  defineProps<Props>()
 </script>
 
 <template>
-  <div class="flex flex-col gap-1 p-3 border border-neutral-600/60 rounded w-fit">
-    <p class="text-sm tracking-wider">{{ title }}</p>
+  <NuxtLink :to="url" class="flex flex-col gap-1 p-3 border border-neutral-600/60 rounded w-fit hover:bg-neutral-600/5 transition-colors">
+    <p class="text-sm tracking-wider lg:text-base">{{ title }}</p>
     <span 
-    class="text-xl font-semibold"
+    class="text-xl font-semibold lg:text-2xl"
     :class="{ 'text-red-500': isCurrent }"
     >{{ formatPrice(total) }}</span>
-  </div>
+  </NuxtLink>
 </template>
