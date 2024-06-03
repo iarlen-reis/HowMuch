@@ -23,7 +23,7 @@ const props = defineProps<InvoicesProps>();
     <ul class="flex flex-col gap-2 lg:gap-4">
       <li v-for="item in props.items" v-bind:key="item.id">
         <NuxtLink
-          :to="`/invoices/${item.id}`"
+          :to="`/purchase/${item.id}`"
           class="flex items-center justify-between hover:bg-neutral-600/10 rounded p-3 transition-colors"
         >
           <div class="flex items-center gap-3">
