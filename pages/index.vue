@@ -80,7 +80,7 @@ const data: Invoices[] = [
     <div class="flex items-start justify-between">
       <div class="flex items-center gap-3">
         <TotalInvoice
-          url="/"
+          url="/invoice"
           :total="100"
           title="Fatura atual"
           :isCurrent="true"
