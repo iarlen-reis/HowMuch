@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Sora:wght@100..800&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Sora:wght@100..800&display=swap");
 
 .open {
   @apply z-10 absolute bottom-0 left-0 right-0 top-20 flex h-screen w-full flex-col gap-2 bg-white pt-6;
@@ -9,11 +9,19 @@ body {
   @apply font-sora tracking-widest;
 }
 
+:root {
+  --dp-input-padding: 12px !important;
+  --dp-font-size: 16px !important;
+  --dp-font-family: "Sora", sans-serif !important;
+  --dp-border-color-focus: #aaaeb7;
+  --dp-icon-color: #959595;
+}
+
 @keyframes menu {
   0% {
-      left: -100%;
+    left: -100%;
   }
   100% {
-      left: 0;
+    left: 0;
   }
 }
