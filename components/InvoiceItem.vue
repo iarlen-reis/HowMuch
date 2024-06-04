@@ -36,7 +36,7 @@ const props = defineProps<InvoicesProps>();
             </div>
           </div>
           <div class="flex flex-col items-end gap-2 text-xs lg:text-sm">
-            <span>{{ formatPrice(item.value) }}</span>
+            <span>R$ {{ formatPrice(item.value) }}</span>
             <span>{{ item.portion }}x</span>
           </div>
         </NuxtLink>

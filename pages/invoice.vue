@@ -145,9 +145,8 @@ const data: Invoices[] = [
       <span class="text-sm sm:text-base md:text-lg lg:text-xl"
         >Fatura atual</span
       >
-      <span
-        class="text-xl md:text-2xl lg:text-3xl text-red-500 font-semibold"
-        >{{ formatPrice(100) }}</span
+      <span class="text-xl md:text-2xl lg:text-3xl text-red-500 font-semibold"
+        >R${{ formatPrice(10000) }}</span
       >
     </div>
     <div class="h-[300px] md:hidden">

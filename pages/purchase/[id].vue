@@ -16,9 +16,9 @@ const { id } = route.params;
     </div>
     <div class="flex flex-col gap-1">
       <h2 class="text-lg lg:text-xl">Valor da compra</h2>
-      <span class="text-xl text-zinc-500 lg:text-2xl">{{
-        formatPrice(120)
-      }}</span>
+      <span class="text-xl text-zinc-500 lg:text-2xl"
+        >R$ {{ formatPrice(120) }}</span
+      >
     </div>
     <div class="flex flex-col gap-1">
       <h2 class="text-lg lg:text-xl">Tipo da compra</h2>

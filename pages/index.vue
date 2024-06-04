@@ -23,14 +23,14 @@ const data: Invoices[] = [
       {
         id: 1,
         title: "Ifood",
-        value: 39.6,
+        value: 1239,
         type: "food",
         portion: 1,
       },
       {
         id: 2,
         title: "Mercado semanal",
-        value: 300,
+        value: 35,
         type: "food",
         portion: 1,
       },
@@ -81,7 +81,7 @@ const data: Invoices[] = [
       <div class="flex items-center gap-3">
         <TotalInvoice
           url="/invoice"
-          :total="100"
+          :total="0"
           title="Fatura atual"
           :isCurrent="true"
         />
