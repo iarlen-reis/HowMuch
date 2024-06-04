@@ -34,7 +34,7 @@ const chartOptions = ref({
           const label = context.dataset.label || "";
           const value = context.raw;
 
-          return `${label}: ${formatPrice(value)}`;
+          return `${label}: R$ ${formatPrice(value)}`;
         },
       },
     },
@@ -139,7 +139,7 @@ const data: Invoices[] = [
 </script>
 
 <template>
-  <div class="flex flex-col gap-8 px-1">
+  <div class="flex flex-col gap-8">
     <Navigation title="Fatura atual" url="/" />
     <div class="flex flex-col gap-1">
       <span class="text-sm sm:text-base md:text-lg lg:text-xl"
