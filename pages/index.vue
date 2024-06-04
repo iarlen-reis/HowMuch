@@ -81,13 +81,13 @@ const data: Invoices[] = [
       <div class="flex items-center gap-3">
         <TotalInvoice
           url="/invoice"
-          :total="0"
+          :total="1000"
           title="Fatura atual"
           :isCurrent="true"
         />
         <TotalInvoice
-          url="/"
-          :total="100"
+          url="/invoices"
+          :total="1000"
           title="Próximas faturas"
           :isCurrent="false"
         />
