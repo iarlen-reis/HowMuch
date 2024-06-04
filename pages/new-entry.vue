@@ -53,7 +53,7 @@ const handleSubmit = (date: FormProps) => {
   console.log({
     ...form,
     date: new Date(form.date).toISOString(),
-    value: form.value.replace(/\D/g, ""),
+    value: Number(form.value.replace(/\D/g, "")) / 100,
   });
 };
 
