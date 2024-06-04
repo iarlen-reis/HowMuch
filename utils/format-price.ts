@@ -1,14 +1,7 @@
 export default function (value: number) {
-  if(value >= 10000) {
-    return new Intl.NumberFormat('pt-BR', {
-      style: 'currency',
-      currency: 'BRL',
-      maximumFractionDigits: 0
-    }).format(value / 1000) + 'K'
-  }
-
-  return new Intl.NumberFormat('pt-BR', {
-    style: 'currency',
-    currency: 'BRL'
-  }).format(value)
+  const formattedValue = (value / 100).toLocaleString("pt-BR", {
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2,
+  });
+  return formattedValue;
 }
