@@ -18,7 +18,7 @@ defineProps<Props>();
   >
     <p class="text-sm tracking-wider lg:text-base">{{ title }}</p>
     <span
-      class="text-xl font-semibold lg:text-2xl"
+      class="text-base md:text-lg font-semibold lg:text-xl xl:text-2xl"
       :class="{ 'text-red-500': isCurrent }"
       >R$ {{ formatPrice(total) }}</span
     >
