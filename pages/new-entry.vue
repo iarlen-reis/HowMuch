@@ -22,6 +22,7 @@ const form = reactive<FormProps>({
   value: "",
   date: "",
   description: "",
+  type: "",
 });
 
 const rules = computed(() => {
@@ -30,6 +31,9 @@ const rules = computed(() => {
       required: helpers.withMessage("Campo obrigatório", required),
     },
     value: {
+      required: helpers.withMessage("Campo obrigatório", required),
+    },
+    type: {
       required: helpers.withMessage("Campo obrigatório", required),
     },
     date: {
@@ -49,7 +53,14 @@ const handleSubmit = (date: FormProps) => {
   console.log({
     ...form,
     date: new Date(form.date).toISOString(),
+    value: form.value.replace(/\D/g, ""),
   });
+};
+
+const handleInput = (event: any) => {
+  const inputValue = event.target.value;
+  const cleanedValue = inputValue.replace(/\D/g, "");
+  form.value = maskPrice(cleanedValue);
 };
 </script>
 
@@ -112,19 +123,121 @@ const handleSubmit = (date: FormProps) => {
             class="text-[#959595]"
           />
           <input
-            type="number"
+            type="text"
             id="value"
             placeholder="Nome da compra"
             class="flex-1 flex outline-none placeholder:text-[#c0c4cc]"
             v-model="form.value"
             @change="v$.value.$touch"
-            min="0"
+            @input="handleInput"
           />
         </div>
         <p v-if="v$.value.$error" class="text-red-500 text-sm">
           {{ v$.value.$errors[0].$message }}
         </p>
       </fieldset>
+
+      <div class="flex flex-col gap-1.5">
+        <label for="type" class="uppercase text-sm lg:text-base text-black"
+          >Tipo da compra</label
+        >
+        <div class="grid grid-cols-2 gap-3 w-fit">
+          <fieldset class="flex flex-col gap-1.5">
+            <input
+              type="radio"
+              id="food"
+              name="type"
+              value="food"
+              class="hidden"
+              v-model="form.type"
+              @change="v$.type.$touch"
+            />
+            <label
+              for="food"
+              class="w-full max-w-[175px] justify-center flex items-center gap-2 p-3 rounded border border-[#ddd] hover:border-[#aaaeb7] text-center"
+            >
+              <Icon
+                :name="selectIcon('food')"
+                font-size="20"
+                class="text-[#959595]"
+              />
+              <span class="text-[#959595]">Alimentação</span>
+            </label>
+          </fieldset>
+
+          <fieldset class="flex flex-col gap-1.5">
+            <input
+              type="radio"
+              id="laser"
+              name="type"
+              value="laser"
+              class="hidden"
+              v-model="form.type"
+              @change="v$.type.$touch"
+            />
+            <label
+              for="laser"
+              class="w-full max-w-[175px] justify-center flex items-center gap-2 p-3 rounded border border-[#ddd] hover:border-[#aaaeb7] text-center"
+            >
+              <Icon
+                :name="selectIcon('laser')"
+                font-size="20"
+                class="text-[#959595]"
+              />
+              <span class="text-[#959595]">Laser</span>
+            </label>
+          </fieldset>
+
+          <fieldset class="flex flex-col gap-1.5">
+            <input
+              type="radio"
+              id="services"
+              name="type"
+              value="services"
+              class="hidden"
+              v-model="form.type"
+              @change="v$.type.$touch"
+            />
+            <label
+              for="services"
+              class="w-full max-w-[175px] justify-center flex items-center gap-2 p-3 rounded border border-[#ddd] hover:border-[#aaaeb7] text-center"
+            >
+              <Icon
+                :name="selectIcon('services')"
+                font-size="20"
+                class="text-[#959595]"
+              />
+              <span class="text-[#959595]">Serviços</span>
+            </label>
+          </fieldset>
+
+          <fieldset class="flex flex-col gap-1.5">
+            <input
+              type="radio"
+              id="other"
+              name="type"
+              value="other"
+              class="hidden"
+              v-model="form.type"
+              @change="v$.type.$touch"
+            />
+            <label
+              for="other"
+              class="w-full max-w-[175px] justify-center flex items-center gap-2 p-3 rounded border border-[#ddd] hover:border-[#aaaeb7] text-center"
+            >
+              <Icon
+                :name="selectIcon('other')"
+                font-size="20"
+                class="text-[#959595]"
+              />
+              <span class="text-[#959595]">Outros</span>
+            </label>
+          </fieldset>
+          <p v-if="v$.type.$error" class="text-red-500 text-sm">
+            {{ v$.type.$errors[0].$message }}
+          </p>
+        </div>
+      </div>
 
       <fieldset class="flex flex-col gap-1">
         <label

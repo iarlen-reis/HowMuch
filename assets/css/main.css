@@ -9,6 +9,15 @@ body {
   @apply font-sora tracking-widest;
 }
 
+input[type="radio"]:checked + label {
+  @apply bg-zinc-950 cursor-pointer;
+}
+
+input[type="radio"]:checked + label span,
+input[type="radio"]:checked + label svg {
+  @apply text-white;
+}
+
 :root {
   --dp-input-padding: 12px !important;
   --dp-font-size: 16px !important;
