@@ -4,6 +4,7 @@ interface PurchaseProps {
   date: string;
   type: string;
   value: number;
+  invoice_id: string;
   description: string;
 }
 
