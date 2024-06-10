@@ -1,18 +1,17 @@
 <script setup lang="ts">
-interface InvoiceProps {
-  id: number;
+interface ItemProps {
+  id: string;
   title: string;
   value: number;
   type: string;
-  portion: number;
 }
 
-interface InvoicesProps {
+interface Purchase {
   date: string;
-  items: InvoiceProps[];
+  items: ItemProps[];
 }
 
-const props = defineProps<InvoicesProps>();
+const props = defineProps<Purchase>();
 </script>
 
 <template>
@@ -37,7 +36,6 @@ const props = defineProps<InvoicesProps>();
           </div>
           <div class="flex flex-col items-end gap-2 text-xs lg:text-sm">
             <span>R$ {{ formatPrice(item.value) }}</span>
-            <span>{{ item.portion }}x</span>
           </div>
         </NuxtLink>
       </li>

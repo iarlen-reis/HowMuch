@@ -1,8 +1,8 @@
 <script setup lang="ts">
 interface InvoiceProps {
-  id: number;
+  id: string;
   date: string;
-  amount: number;
+  total: number;
 }
 
 const props = defineProps<InvoiceProps>();
@@ -15,7 +15,7 @@ const props = defineProps<InvoiceProps>();
       class="flex p-3 px-0 md:px-3 items-center gap-2 justify-between text-base md:text-lg xl:text-xl rounded hover:bg-neutral-600/10 transition-colors"
     >
       <span
-        >{{ formatDate(props.date) }} - R$ {{ formatPrice(props.amount) }}</span
+        >{{ formatDate(props.date) }} - R$ {{ formatPrice(props.total) }}</span
       >
       <Icon name="ic:baseline-chevron-right" font-size="24" />
     </NuxtLink>
