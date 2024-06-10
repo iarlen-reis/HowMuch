@@ -6,4 +6,9 @@ export default defineNuxtConfig({
     transpile: ["@vuepic/vue-datepicker"],
   },
   modules: ["@nuxtjs/tailwindcss", "nuxt-icon", "@pinia/nuxt"],
+  runtimeConfig: {
+    public: {
+      baseUrl: process.env.NUXT_API_BASE,
+    },
+  },
 });
