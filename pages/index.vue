@@ -48,7 +48,7 @@ const auth = useAuthStore();
         <Icon name="ic:outline-more-vert" font-size="24" />
         <div class="tooltiptext">
           <NuxtLink
-            to="/"
+            to="/new-entry"
             class="p-2 text-center border border-black/40 rounded hover:bg-zinc-200 transition-colors"
             >Nova entrada</NuxtLink
           >
