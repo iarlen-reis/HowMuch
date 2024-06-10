@@ -14,11 +14,14 @@ const chart = await actions.chart.chartById(id);
 </script>
 
 <template>
-  <div class="flex flex-col gap-8">
-    <Navigation title="Fatura - Maio de 2024" url="/" />
+  <div class="flex flex-col gap-8" v-if="invoice">
+    <Navigation
+      :title="`Fatura - ${formatTitle(invoice.data.invoice.date)}`"
+      url="/invoices"
+    />
     <div class="flex flex-col gap-1">
       <span class="text-sm sm:text-base md:text-lg lg:text-xl"
-        >Fatura atual</span
+        >Total da fatura</span
       >
       <span class="text-xl md:text-2xl lg:text-3xl font-semibold"
         >R${{ formatPrice(invoice?.data.invoice.total ?? 0) }}</span

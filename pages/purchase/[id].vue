@@ -12,8 +12,11 @@ const purchase = await actions.purchase.purchaseById(id);
 </script>
 
 <template>
-  <div class="flex flex-col gap-4">
-    <Navigation url="/" title="Compra na shopee" />
+  <div class="flex flex-col gap-4" v-if="purchase">
+    <Navigation
+      :url="`/invoices/${purchase.invoice_id}`"
+      title="Voltar à fatura"
+    />
     <div class="flex flex-col gap-1 mt-2" v-if="purchase?.title">
       <h1 class="text-2xl line-clamp-1 lg:text-3xl">{{ purchase.title }}</h1>
       <p class="text-sm text-zinc-500 lg:text-base">
@@ -48,6 +51,7 @@ const purchase = await actions.purchase.purchaseById(id);
         Editar
       </button>
       <button
+        @click="actions.purchase.destroy(id)"
         class="p-3 md:max-w-[200px] w-full rounded text-center text-white hover:opacity-85 transition-opacity bg-red-500"
       >
         Remover da fatura
