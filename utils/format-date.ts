@@ -1,7 +1,8 @@
 import { format } from "date-fns";
 import { ptBR } from "date-fns/locale";
+import { toZonedTime } from "date-fns-tz";
 
 export default function (date: string): string {
-  const dateString = new Date(date);
-  return format(dateString, "dd 'de' MMM, yyyy", { locale: ptBR });
+  const zonedDate = toZonedTime(date, "UTC");
+  return format(zonedDate, "dd 'de' MMM, yyyy", { locale: ptBR });
 }
