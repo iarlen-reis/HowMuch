@@ -1,68 +1,15 @@
 <script setup lang="ts">
+import actions from "~/actions";
+import { useAuthStore } from "~/store/useAuthStore";
+
 definePageMeta({
   layout: "custom",
+  middleware: "auth",
 });
 
-interface InvoiceProps {
-  id: number;
-  title: string;
-  value: number;
-  type: string;
-  portion: number;
-}
+const data = await actions.purchase.lastPurchases();
 
-interface Invoices {
-  date: string;
-  items: InvoiceProps[];
-}
-
-const data: Invoices[] = [
-  {
-    date: "06/01/2024",
-    items: [
-      {
-        id: 1,
-        title: "Ifood",
-        value: 1239,
-        type: "food",
-        portion: 1,
-      },
-      {
-        id: 2,
-        title: "Mercado semanal",
-        value: 35,
-        type: "food",
-        portion: 1,
-      },
-    ],
-  },
-  {
-    date: "05/31/2024",
-    items: [
-      {
-        id: 1,
-        title: "Recarga de celular",
-        value: 20,
-        type: "other",
-        portion: 1,
-      },
-      {
-        id: 2,
-        title: "Conta de luz",
-        value: 300,
-        type: "services",
-        portion: 2,
-      },
-      {
-        id: 3,
-        title: "Compra na shopee",
-        value: 120,
-        type: "laser",
-        portion: 3,
-      },
-    ],
-  },
-];
+const auth = useAuthStore();
 </script>
 
 <template>
@@ -71,9 +18,14 @@ const data: Invoices[] = [
       <div class="flex items-center justify-between">
         <p class="text-lg tracking-wider lg:text-xl">
           Seja bem vindo,
-          <span class="capitalize font-semibold block">iarlen reis.</span>
+          <span class="capitalize font-semibold block">
+            {{ auth.user?.name }}
+          </span>
         </p>
-        <Avatar url="https://github.com/iarlen-reis.png" alt="Iarlen Reis" />
+        <Avatar
+          url="https://github.com/iarlen-reis.png"
+          :alt="auth.user?.name"
+        />
       </div>
     </div>
 
@@ -81,13 +33,13 @@ const data: Invoices[] = [
       <div class="flex items-center gap-3">
         <TotalInvoice
           url="/invoice"
-          :total="1000"
+          :total="Number(data?.total_current_invoice)"
           title="Fatura atual"
           :isCurrent="true"
         />
         <TotalInvoice
           url="/invoices"
-          :total="1000"
+          :total="Number(data?.total_next_invoices)"
           title="Próximas faturas"
           :isCurrent="false"
         />
@@ -106,7 +58,11 @@ const data: Invoices[] = [
 
     <div class="flex flex-col gap-4">
       <h2 class="tracking-wider lg:text-xl">Últimas movimentações</h2>
-      <InvoiceItem v-for="item in data" :key="item.date" v-bind="item" />
+      <InvoiceItem
+        v-for="item in data?.last_purchases"
+        :key="item.date"
+        v-bind="item"
+      />
     </div>
   </div>
 </template>
