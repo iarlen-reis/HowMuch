@@ -4,9 +4,11 @@ import VueDatePicker from "@vuepic/vue-datepicker";
 import "@vuepic/vue-datepicker/dist/main.css";
 import { required, helpers } from "@vuelidate/validators";
 import { useVuelidate } from "@vuelidate/core";
+import actions from "~/actions";
 
 definePageMeta({
   layout: "custom",
+  middleware: "auth",
 });
 
 interface FormProps {
@@ -44,16 +46,18 @@ const rules = computed(() => {
 
 const v$ = useVuelidate(rules, form);
 
-const handleSubmit = (date: FormProps) => {
+const handleSubmit = async (date: FormProps) => {
   v$.value.$validate();
   if (v$.value.$error) {
     return;
   }
 
-  console.log({
-    ...form,
-    date: new Date(form.date).toISOString(),
+  await actions.purchase.newPurchase({
+    title: form.title,
     value: Number(form.value.replace(/\D/g, "")) / 100,
+    date: form.date,
+    type: form.type,
+    description: form.description,
   });
 };
 
