@@ -2,6 +2,8 @@
 import "primeicons/primeicons.css";
 import { required, email, helpers } from "@vuelidate/validators";
 import { useVuelidate } from "@vuelidate/core";
+import actions from "~/actions";
+
 interface FormProps {
   email: string;
   password: string;
@@ -26,13 +28,13 @@ const rules = computed(() => {
 
 const v$ = useVuelidate(rules, form);
 
-const handleSubmit = () => {
+const handleSubmit = async () => {
   v$.value.$validate();
   if (v$.value.$error) {
     return;
   }
 
-  console.log(form);
+  actions.auth.login(form);
 };
 </script>
 
