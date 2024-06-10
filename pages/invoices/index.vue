@@ -1,47 +1,30 @@
 <script setup lang="ts">
+import actions from "~/actions";
+
 definePageMeta({
   layout: "custom",
+  middleware: "auth",
 });
 
-interface InvoiceProps {
-  id: number;
-  date: string;
-  amount: number;
-}
-
-const data: InvoiceProps[] = [
-  {
-    id: 1,
-    date: "2022-01-01",
-    amount: 10000,
-  },
-  {
-    id: 2,
-    date: "2022-01-02",
-    amount: 20000,
-  },
-  {
-    id: 3,
-    date: "2022-01-03",
-    amount: 30000,
-  },
-];
+const data = await actions.invoice.nextInvoices();
 </script>
 
 <template>
   <div class="flex flex-col gap-5">
     <Navigation url="/" title="Próximas faturas" />
-    <div class="flex flex-col mt-4">
+    <div class="flex flex-col mt-4" v-if="data?.data?.total">
       <span>Próximas faturas</span>
-      <span class="text-xl font-semibold">R$ {{ formatPrice(10000) }}</span>
+      <span class="text-xl font-semibold"
+        >R$ {{ formatPrice(Number(data.data.total)) }}</span
+      >
     </div>
     <ul class="flex flex-col gap-2">
       <NextInvoice
-        v-for="invoice in data"
+        v-for="invoice in data?.data.invoices"
         :key="invoice.id"
         :id="invoice.id"
         :date="invoice.date"
-        :amount="invoice.amount"
+        :total="Number(invoice.total)"
       />
     </ul>
   </div>
