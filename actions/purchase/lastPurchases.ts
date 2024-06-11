@@ -11,9 +11,11 @@ interface PurchaseProps {
 }
 
 interface LastPurchaseProps {
-  total_current_invoice: number;
-  total_next_invoices: number;
-  last_purchases: PurchaseProps[];
+  data: {
+    total_current_invoice: number;
+    total_next_invoices: number;
+    last_purchases: PurchaseProps[];
+  };
 }
 
 export const lastPurchases = async (): Promise<LastPurchaseProps | null> => {
