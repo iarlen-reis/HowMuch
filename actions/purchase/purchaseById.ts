@@ -1,11 +1,13 @@
 interface PurchaseProps {
-  id: string;
-  title: string;
-  date: string;
-  type: string;
-  value: number;
-  invoice_id: string;
-  description: string;
+  data: {
+    id: string;
+    title: string;
+    date: string;
+    type: string;
+    value: number;
+    invoice_id: string;
+    description: string;
+  };
 }
 
 export const purchaseById = async (

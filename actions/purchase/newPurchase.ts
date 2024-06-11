@@ -7,7 +7,7 @@ interface PurchaseProps {
 }
 
 interface ResponseProps {
-  purchase: {
+  data: {
     id: string;
     title: string;
     value: number;
@@ -27,7 +27,7 @@ export const newPurchase = async (props: PurchaseProps) => {
 
     const data = response.data.value as ResponseProps;
 
-    return navigateTo(`/purchase/${data.purchase.id}`);
+    return navigateTo(`/purchase/${data.data.id}`);
   } catch (error) {
     return null;
   }
