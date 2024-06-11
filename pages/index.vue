@@ -19,13 +19,10 @@ const auth = useAuthStore();
         <p class="text-lg tracking-wider lg:text-xl">
           Seja bem vindo,
           <span class="capitalize font-semibold block">
-            {{ auth.user?.name }}
+            {{ auth.user?.data.name }}
           </span>
         </p>
-        <Avatar
-          url="https://github.com/iarlen-reis.png"
-          :alt="auth.user?.name"
-        />
+        <Avatar :url="auth.user?.data.photo" :alt="auth.user?.data.name" />
       </div>
     </div>
 

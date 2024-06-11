@@ -1,9 +1,12 @@
 import { defineStore } from "pinia";
 
 interface UserProps {
-  id: string;
-  name: string;
-  email: string;
+  data: {
+    id: string;
+    name: string;
+    email: string;
+    photo: string;
+  };
 }
 
 export const useAuthStore = defineStore("auth", () => {
