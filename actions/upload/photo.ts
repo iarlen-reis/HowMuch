@@ -3,7 +3,9 @@ export async function photo(file: File) {
     const formData = new FormData();
     formData.append("file", file);
 
-    const response = await $fetch("http://localhost/api/upload", {
+    const config = useRuntimeConfig();
+
+    const response = await $fetch(config.public.baseUrl + "/upload", {
       method: "POST",
       body: formData,
       headers: {
