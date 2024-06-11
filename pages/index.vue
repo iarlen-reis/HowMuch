@@ -78,7 +78,7 @@ const auth = useAuthStore();
         class="p-2 flex items-center gap-2 text-center border border-black/40 rounded hover:bg-red-500 hover:text-white hover:border-white/40 transition-colors"
       >
         <Icon name="ic:outline-plus" font-size="20" />
-        <span class="text-lg">Nova entrada</span>
+        <span class="text-lg">Nova compra</span>
       </NuxtLink>
     </div>
   </div>
