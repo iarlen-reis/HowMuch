@@ -17,7 +17,7 @@ const chart = await actions.chart.chartById(id);
   <div class="flex flex-col gap-8" v-if="invoice?.data.purchases.length">
     <Navigation
       :title="`Fatura - ${formatTitle(invoice.data.invoice.date)}`"
-      url="/invoices"
+      url="/"
     />
     <div class="flex flex-col gap-1">
       <span class="text-sm sm:text-base md:text-lg lg:text-xl"
