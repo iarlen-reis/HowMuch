@@ -97,11 +97,6 @@ const handleSubmit = async () => {
           {{ v$.password.$errors[0].$message }}
         </p>
       </fieldset>
-      <div class="flex justify-end items-center">
-        <NuxtLink to="/forgot-password" class="text-red-600 font-semibold"
-          >Esqueceu a sua senha?</NuxtLink
-        >
-      </div>
       <div class="flex items-center justify-end">
         <button
           @click="handleSubmit"
