@@ -22,14 +22,13 @@
     "nuxt": "^3.11.2",
     "pinia": "^2.1.7",
     "primeicons": "^7.0.0",
+    "sweetalert2": "^11.11.1",
     "vue": "^3.4.27",
     "vue-chartjs": "^5.3.1",
-    "vue-router": "^4.3.2"
+    "vue-router": "^4.3.2",
+    "vue-sonner": "^1.1.2"
   },
   "devDependencies": {
     "nuxt-icon": "^0.6.10"
-  },
-  "overrides": {
-    "vue": "latest"
   }
 }
