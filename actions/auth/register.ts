@@ -5,17 +5,20 @@ interface RegisterForm {
 }
 
 export async function register(props: RegisterForm) {
+  const { $toast } = useNuxtApp();
+  const config = useRuntimeConfig();
+
   try {
-    const response = await useAPI("/auth/register", {
+    await $fetch(config.public.baseUrl + "/auth/register", {
       method: "post",
       body: props,
     });
 
-    if (!response.error.value) {
-      return navigateTo("/login");
-    }
+    $toast.success("Registro realizado com sucesso!");
+    return navigateTo("/login");
   } catch (error) {
     console.log(error);
+    $toast.error("Erro ao realizar o registro.");
     return navigateTo("/register");
   }
 }
