@@ -17,7 +17,7 @@ const auth = useAuthStore();
     <div>
       <div class="flex items-center justify-between">
         <p class="text-lg tracking-wider lg:text-xl">
-          Seja bem vindo,
+          Seja bem vindo (a),
           <span class="capitalize font-semibold block">
             {{ auth.user?.data.name }}
           </span>
