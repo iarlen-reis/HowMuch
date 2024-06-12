@@ -1,3 +1,5 @@
+import { ru } from "date-fns/locale";
+
 interface PurchaseProps {
   title: string;
   value: number;
@@ -20,14 +22,24 @@ interface ResponseProps {
 
 export const newPurchase = async (props: PurchaseProps) => {
   try {
-    const response = await useAPI("/purchase", {
-      method: "POST",
-      body: props,
-    });
+    const { $toast } = useNuxtApp();
+    const token = useCookie("token").value;
+    const config = useRuntimeConfig();
 
-    const data = response.data.value as ResponseProps;
+    const response = await $fetch<ResponseProps>(
+      config.public.baseUrl + "/purchase",
+      {
+        method: "POST",
+        body: props,
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
 
-    return navigateTo(`/purchase/${data.data.id}`);
+    $toast.success("Compra criada com sucesso!");
+    return navigateTo(`/purchase/${response.data.id}`);
   } catch (error) {
     return null;
   }
