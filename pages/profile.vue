@@ -33,7 +33,7 @@ const handleSubmit = async () => {
 <template>
   <div class="flex flex-col gap-4 w-full max-w-[600px] mx-auto mt-6">
     <Navigation url="/" title="Meu perfil" />
-    <div>
+    <div class="mt-6">
       <img
         v-if="auth.user?.data.photo"
         :src="auth.user?.data.photo"
@@ -68,7 +68,7 @@ const handleSubmit = async () => {
 
       <button
         @click="handleSubmit"
-        class="p-2 border border-black/40 rounded w-fit mx-auto hover:bg-blue-500 hover:text-white hover:border-white/40 transition-colors"
+        class="w-[160px] p-2 border border-black/40 rounded mx-auto hover:bg-blue-500 hover:text-white hover:border-white/40 transition-colors"
       >
         Salvar imagem
       </button>
@@ -83,7 +83,7 @@ const handleSubmit = async () => {
     </div>
     <div class="flex items-center justify-center gap-2">
       <button
-        @click="actions.auth.logout()"
+        @click="actions.auth.logout"
         class="flex items-center gap-2 p-2 text-center border border-black/40 rounded hover:bg-red-500 hover:text-white hover:border-white/40 transition-colors"
       >
         <Icon name="ic:baseline-log-out" font-size="20" />
