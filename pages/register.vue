@@ -3,6 +3,11 @@ import "primeicons/primeicons.css";
 import { required, email, helpers } from "@vuelidate/validators";
 import { useVuelidate } from "@vuelidate/core";
 import actions from "~/actions";
+
+useHead({
+  title: "HowMuch - Registro",
+});
+
 interface FormProps {
   name: string;
   email: string;

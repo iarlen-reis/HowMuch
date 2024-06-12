@@ -6,6 +6,10 @@ import { required, helpers } from "@vuelidate/validators";
 import { useVuelidate } from "@vuelidate/core";
 import actions from "~/actions";
 
+useHead({
+  title: "HowMuch - Nova entrada",
+});
+
 definePageMeta({
   layout: "custom",
   middleware: "auth",

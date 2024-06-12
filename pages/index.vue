@@ -2,6 +2,10 @@
 import actions from "~/actions";
 import { useAuthStore } from "~/store/useAuthStore";
 
+useHead({
+  title: "HowMuch - Página Inicial",
+});
+
 definePageMeta({
   layout: "custom",
   middleware: "auth",

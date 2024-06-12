@@ -1,6 +1,10 @@
 <script setup lang="ts">
 import actions from "~/actions";
 
+useHead({
+  title: "HowMuch - Detalhes da fatura",
+});
+
 definePageMeta({
   layout: "custom",
   middleware: "auth",

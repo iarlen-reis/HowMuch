@@ -1,5 +1,8 @@
 <script setup lang="ts">
 import actions from "~/actions";
+useHead({
+  title: "HowMuch - Próximas faturas",
+});
 
 definePageMeta({
   layout: "custom",

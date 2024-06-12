@@ -2,6 +2,10 @@
 import actions from "~/actions";
 import Swal from "sweetalert2";
 
+useHead({
+  title: "HowMuch - Detalhes da compra",
+});
+
 definePageMeta({
   layout: "custom",
 });
