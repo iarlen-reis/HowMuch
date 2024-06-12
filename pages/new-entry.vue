@@ -46,18 +46,15 @@ const rules = computed(() => {
 
 const v$ = useVuelidate(rules, form);
 
-const handleSubmit = async (date: FormProps) => {
+const handleSubmit = async () => {
   v$.value.$validate();
   if (v$.value.$error) {
     return;
   }
 
   await actions.purchase.newPurchase({
-    title: form.title,
+    ...form,
     value: Number(form.value.replace(/\D/g, "")) / 100,
-    date: form.date,
-    type: form.type,
-    description: form.description,
   });
 };
 
@@ -73,9 +70,10 @@ const handleInput = (event: any) => {
     <Navigation url="/" title="Página inicial" />
     <form class="flex flex-col gap-4" @submit.prevent>
       <fieldset class="flex flex-col gap-1">
-        <label for="email" class="uppercase text-sm lg:text-base text-black"
-          >Nome da compra</label
-        >
+        <label for="email" class="uppercase text-sm lg:text-base text-black">
+          Nome da compra
+          <span class="text-sm text-red-500">*</span>
+        </label>
         <div
           class="flex items-center gap-2 hover:border-[#aaaeb7] p-3 rounded bg-transparent border border-[#ddd]"
         >
@@ -99,9 +97,10 @@ const handleInput = (event: any) => {
       </fieldset>
 
       <fieldset class="flex flex-col gap-1">
-        <label for="date" class="uppercase text-sm lg:text-base text-black"
-          >Data da compra</label
-        >
+        <label for="date" class="uppercase text-sm lg:text-base text-black">
+          Data da compra
+          <span class="text-sm text-red-500">*</span>
+        </label>
         <VueDatePicker
           v-model="form.date"
           :format="formatInputDate"
@@ -115,9 +114,10 @@ const handleInput = (event: any) => {
       </fieldset>
 
       <fieldset class="flex flex-col gap-1">
-        <label for="value" class="uppercase text-sm lg:text-base text-black"
-          >Valor da compra</label
-        >
+        <label for="value" class="uppercase text-sm lg:text-base text-black">
+          Valor da compra
+          <span class="text-sm text-red-500">*</span>
+        </label>
         <div
           class="flex items-center gap-2 hover:border-[#aaaeb7] p-3 rounded bg-transparent border border-[#ddd]"
         >
@@ -142,9 +142,10 @@ const handleInput = (event: any) => {
       </fieldset>
 
       <div class="flex flex-col gap-1.5">
-        <label for="type" class="uppercase text-sm lg:text-base text-black"
-          >Tipo da compra</label
-        >
+        <label for="type" class="uppercase text-sm lg:text-base text-black">
+          Tipo da compra
+          <span class="text-sm text-red-500">*</span>
+        </label>
         <div class="grid grid-cols-2 gap-3 w-fit">
           <fieldset class="flex flex-col gap-1.5">
             <input
