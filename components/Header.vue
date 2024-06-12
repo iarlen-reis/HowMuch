@@ -18,13 +18,13 @@ const toggleMobileMenu = () => {
         class="hidden items-center gap-4 md:flex"
         :class="{ open: mobileMenu }"
       >
-        <li>
+        <li @click="mobileMenu = false">
           <NuxtLink to="/">Página inicial</NuxtLink>
         </li>
-        <li>
+        <li @click="mobileMenu = false">
           <NuxtLink to="/login">Entrar</NuxtLink>
         </li>
-        <li>
+        <li @click="mobileMenu = false">
           <NuxtLink to="/register">Cadastro</NuxtLink>
         </li>
       </ul>
