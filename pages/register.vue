@@ -36,6 +36,7 @@ const rules = computed(() => {
 });
 
 const v$ = useVuelidate(rules, form);
+const isLoading = ref(false);
 
 const handleSubmit = async () => {
   v$.value.$validate();
@@ -43,7 +44,11 @@ const handleSubmit = async () => {
     return;
   }
 
+  isLoading.value = true;
+
   await actions.auth.register(form);
+
+  isLoading.value = false;
 };
 </script>
 
@@ -127,7 +132,8 @@ const handleSubmit = async () => {
       <div class="flex items-center justify-end">
         <button
           @click="handleSubmit"
-          class="lg:w-[240px] p-3 rounded bg-neutral-800 text-white text-center w-full hover:opacity-85 transition-opacity"
+          :disabled="isLoading"
+          class="lg:w-[240px] p-3 rounded bg-neutral-800 text-white text-center w-full hover:opacity-85 transition-opacity disabled:bg-zinc-400 disabled:text-zinc-600 disabled:cursor-not-allowed"
         >
           Criar conta
         </button>
