@@ -45,8 +45,8 @@ const auth = useAuthStore();
           :isCurrent="false"
         />
       </div>
-      <div class="tooltip">
-        <Icon name="ic:outline-more-vert" font-size="24" />
+      <div class="tooltip cursor-pointer">
+        <Icon name="ic:outline-more-vert" font-size="30" />
         <div class="tooltiptext">
           <NuxtLink
             to="/new-entry"
