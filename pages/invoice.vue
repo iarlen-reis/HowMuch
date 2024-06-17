@@ -36,6 +36,10 @@ const chart = await actions.chart.chartById(invoice?.data?.invoice.id ?? "");
     </div>
   </div>
   <div v-else class="flex flex-col gap-3 items-center justify-center">
+    <div class="w-full max-w-[600px] mx-auto">
+      <Navigation title="Página inicial" url="/" />
+    </div>
+
     <img
       src="/public/images/not-found.png"
       alt="Nenhuma compra registrada"

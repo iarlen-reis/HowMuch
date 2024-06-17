@@ -32,6 +32,9 @@ const data = await actions.invoice.nextInvoices();
     </ul>
   </div>
   <div v-else class="flex flex-col gap-3 items-center justify-center">
+    <div class="w-full max-w-[600px] mx-auto">
+      <Navigation title="Página inicial" url="/" />
+    </div>
     <img
       src="/public/images/not-found.png"
       alt="Nenhuma movimentação registrada"
