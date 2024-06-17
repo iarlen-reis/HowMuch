@@ -14,6 +14,7 @@ definePageMeta({
 const auth = useAuthStore();
 const file = ref<File>();
 const imagePreview = ref<string>();
+const isLoading = ref(false);
 
 const handleFileUpload = (event: any) => {
   file.value = event.target.files[0];
@@ -29,8 +30,11 @@ const handleFileUpload = (event: any) => {
 
 const handleSubmit = async () => {
   if (!file.value) return;
+  isLoading.value = true;
 
   await actions.upload.photo(file.value);
+
+  isLoading.value = false;
 };
 </script>
 
@@ -72,7 +76,8 @@ const handleSubmit = async () => {
 
       <button
         @click="handleSubmit"
-        class="w-[160px] p-2 border border-black/40 rounded mx-auto hover:bg-blue-500 hover:text-white hover:border-white/40 transition-colors"
+        :disabled="isLoading"
+        class="w-[160px] p-2 border border-black/40 rounded mx-auto hover:bg-blue-500 hover:text-white hover:border-white/40 transition-colors disabled:bg-zinc-400 disabled:text-zinc-600 disabled:cursor-not-allowed"
       >
         Salvar imagem
       </button>
@@ -88,7 +93,8 @@ const handleSubmit = async () => {
     <div class="flex items-center justify-center gap-2">
       <button
         @click="actions.auth.logout"
-        class="flex items-center gap-2 p-2 text-center border border-black/40 rounded hover:bg-red-500 hover:text-white hover:border-white/40 transition-colors"
+        :disabled="isLoading"
+        class="flex items-center gap-2 p-2 text-center border border-black/40 rounded hover:bg-red-500 hover:text-white hover:border-white/40 transition-colors disabled:bg-zinc-400 disabled:text-zinc-600 disabled:cursor-not-allowed"
       >
         <Icon name="ic:baseline-log-out" font-size="20" />
         Sair
