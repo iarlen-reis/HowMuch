@@ -70,11 +70,6 @@ function confirmDelete() {
       class="flex flex-col gap-2 mt-4 md:items-center md:justify-end md:flex-row"
     >
       <button
-        class="py-2 px-3 md:w-fit w-full text-base rounded text-center text-white hover:opacity-85 transition-opacity bg-blue-400"
-      >
-        Editar
-      </button>
-      <button
         @click="confirmDelete"
         class="py-2 px-3 md:w-fit w-full text-base rounded text-center text-white hover:opacity-85 transition-opacity bg-red-500"
       >
