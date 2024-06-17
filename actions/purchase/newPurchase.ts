@@ -1,5 +1,3 @@
-import { ru } from "date-fns/locale";
-
 interface PurchaseProps {
   title: string;
   value: number;

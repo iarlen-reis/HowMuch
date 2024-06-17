@@ -49,17 +49,21 @@ const rules = computed(() => {
 });
 
 const v$ = useVuelidate(rules, form);
+const isLoading = ref(false);
 
 const handleSubmit = async () => {
   v$.value.$validate();
   if (v$.value.$error) {
     return;
   }
+  isLoading.value = true;
 
   await actions.purchase.newPurchase({
     ...form,
     value: Number(form.value.replace(/\D/g, "")) / 100,
   });
+
+  isLoading.value = false;
 };
 
 const handleInput = (event: any) => {
@@ -272,7 +276,8 @@ const handleInput = (event: any) => {
         <button
           type="submit"
           @click="handleSubmit"
-          class="w-full md:w-[210px] p-3 bg-zinc-950 text-white rounded hover:opacity-85 transition-opacity"
+          :disabled="isLoading"
+          class="w-full md:w-[210px] p-3 bg-zinc-950 text-white rounded hover:opacity-85 transition-opacity disabled:bg-zinc-400 disabled:text-zinc-600 disabled:cursor-not-allowed"
         >
           Criar entrada
         </button>
