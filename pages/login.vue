@@ -40,7 +40,10 @@ const handleSubmit = async () => {
   }
   isLoading.value = true;
 
-  await actions.auth.login(form);
+  await actions.auth.login({
+    email: form.email.toLocaleLowerCase().trim(),
+    password: form.password.trim(),
+  });
 
   isLoading.value = false;
 };

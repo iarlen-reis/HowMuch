@@ -46,7 +46,11 @@ const handleSubmit = async () => {
 
   isLoading.value = true;
 
-  await actions.auth.register(form);
+  await actions.auth.register({
+    name: form.name.trim(),
+    password: form.password.trim(),
+    email: form.email.toLocaleLowerCase().trim(),
+  });
 
   isLoading.value = false;
 };
