@@ -76,8 +76,8 @@ const handleInput = (event: any) => {
 <template>
   <div class="flex flex-col gap-8">
     <Navigation url="/" title="Página inicial" />
-    <form class="flex flex-col gap-4" @submit.prevent>
-      <fieldset class="flex flex-col gap-1">
+    <form class="flex flex-col gap-6" @submit.prevent>
+      <fieldset class="flex flex-col gap-1.5">
         <label for="email" class="uppercase text-sm lg:text-base text-black">
           Nome da compra
           <span class="text-sm text-red-500">*</span>
@@ -104,16 +104,16 @@ const handleInput = (event: any) => {
         </p>
       </fieldset>
 
-      <fieldset class="flex flex-col gap-1">
+      <fieldset class="flex flex-col gap-1.5">
         <label for="date" class="uppercase text-sm lg:text-base text-black">
-          Data da compra
+          Data de pagamento
           <span class="text-sm text-red-500">*</span>
         </label>
         <VueDatePicker
           v-model="form.date"
           :format="formatInputDate"
           :enable-time-picker="false"
-          placeholder="Data da compra"
+          placeholder="Data de pagamento"
           @change="v$.date.$touch()"
         ></VueDatePicker>
         <p v-if="v$.date.$error" class="text-red-500 text-sm">
@@ -121,7 +121,7 @@ const handleInput = (event: any) => {
         </p>
       </fieldset>
 
-      <fieldset class="flex flex-col gap-1">
+      <fieldset class="flex flex-col gap-1.5">
         <label for="value" class="uppercase text-sm lg:text-base text-black">
           Valor da compra
           <span class="text-sm text-red-500">*</span>
@@ -167,7 +167,7 @@ const handleInput = (event: any) => {
             />
             <label
               for="food"
-              class="w-full max-w-[175px] justify-center flex items-center gap-2 p-3 rounded border border-[#ddd] hover:border-[#aaaeb7] text-center"
+              class="w-full max-w-[175px] cursor-pointer justify-center flex items-center gap-2 p-3 rounded border border-[#ddd] hover:border-[#aaaeb7] text-center"
             >
               <Icon
                 :name="selectIcon('food')"
@@ -190,7 +190,7 @@ const handleInput = (event: any) => {
             />
             <label
               for="laser"
-              class="w-full max-w-[175px] justify-center flex items-center gap-2 p-3 rounded border border-[#ddd] hover:border-[#aaaeb7] text-center"
+              class="w-full max-w-[175px] cursor-pointer justify-center flex items-center gap-2 p-3 rounded border border-[#ddd] hover:border-[#aaaeb7] text-center"
             >
               <Icon
                 :name="selectIcon('laser')"
@@ -213,7 +213,7 @@ const handleInput = (event: any) => {
             />
             <label
               for="services"
-              class="w-full max-w-[175px] justify-center flex items-center gap-2 p-3 rounded border border-[#ddd] hover:border-[#aaaeb7] text-center"
+              class="w-full max-w-[175px] cursor-pointer justify-center flex items-center gap-2 p-3 rounded border border-[#ddd] hover:border-[#aaaeb7] text-center"
             >
               <Icon
                 :name="selectIcon('services')"
@@ -236,7 +236,7 @@ const handleInput = (event: any) => {
             />
             <label
               for="other"
-              class="w-full max-w-[175px] justify-center flex items-center gap-2 p-3 rounded border border-[#ddd] hover:border-[#aaaeb7] text-center"
+              class="w-full max-w-[175px] cursor-pointer justify-center flex items-center gap-2 p-3 rounded border border-[#ddd] hover:border-[#aaaeb7] text-center"
             >
               <Icon
                 :name="selectIcon('other')"
@@ -252,7 +252,7 @@ const handleInput = (event: any) => {
         </div>
       </div>
 
-      <fieldset class="flex flex-col gap-1">
+      <fieldset class="flex flex-col gap-1.5">
         <label
           for="description"
           class="uppercase text-sm lg:text-base text-black"
