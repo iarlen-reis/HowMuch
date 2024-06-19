@@ -30,7 +30,7 @@ const auth = useAuthStore();
       </div>
     </div>
 
-    <div class="flex items-start justify-between">
+    <div class="flex flex-col gap-4">
       <div class="flex items-center gap-3">
         <TotalInvoice
           url="/invoice"
@@ -45,15 +45,15 @@ const auth = useAuthStore();
           :isCurrent="false"
         />
       </div>
-      <div class="tooltip cursor-pointer">
-        <Icon name="ic:outline-more-vert" font-size="30" />
-        <div class="tooltiptext">
-          <NuxtLink
-            to="/new-entry"
-            class="p-2 text-center border border-black/40 rounded hover:bg-zinc-200 transition-colors"
-            >Nova entrada</NuxtLink
-          >
-        </div>
+
+      <div class="flex items-center justify-end">
+        <NuxtLink
+          to="/new-entry"
+          class="text-sm md:text-base lg:text-lg hover:underline hover:opacity-85 transition-all"
+        >
+          <Icon name="ic:outline-plus" font-size="18" />
+          Nova compra
+        </NuxtLink>
       </div>
     </div>
 
@@ -87,17 +87,3 @@ const auth = useAuthStore();
     </div>
   </div>
 </template>
-
-<style scoped>
-.tooltip {
-  @apply relative inline-block;
-}
-
-.tooltip .tooltiptext {
-  @apply bg-white border border-zinc-950 right-0 rounded-md absolute z-10 p-3 flex flex-col gap-2 w-[200px] invisible;
-}
-
-.tooltip:hover .tooltiptext {
-  @apply visible;
-}
-</style>
