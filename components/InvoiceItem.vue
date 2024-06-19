@@ -28,13 +28,17 @@ const props = defineProps<Purchase>();
           <div class="flex items-center gap-3">
             <Icon :name="selectIcon(item.type)" class="text-2xl lg:text-3xl" />
             <div class="flex flex-col">
-              <h4 class="text-sm line-clamp-1 lg:text-lg">{{ item.title }}</h4>
+              <h4 class="text-sm line-clamp-1 lg:text-lg capitalize">
+                {{ item.title }}
+              </h4>
               <span class="text-sm text-zinc-400 lg:text-base">{{
                 convertType(item.type)
               }}</span>
             </div>
           </div>
-          <div class="flex flex-col items-end gap-2 text-xs lg:text-sm">
+          <div
+            class="flex flex-col items-end gap-2 text-xs md:text-sm lg:text-base"
+          >
             <span>R$ {{ formatPrice(item.value) }}</span>
           </div>
         </NuxtLink>
