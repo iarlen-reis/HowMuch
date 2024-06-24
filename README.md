@@ -1,75 +1,32 @@
-# Nuxt 3 Minimal Starter
+# HowMuch
 
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+HowMuch é uma aplicação de gerenciamento financeiro, com ela você pode tornar sua vida financeira mais organizada.
 
-## Setup
+A API foi desenvolvida utilizando PHP com Laravel, você pode encontrar a documentação da API abaixo:
 
-Make sure to install the dependencies:
+- [Repositório da API](https://github.com/iarlen-reis/HowMuch-API)
 
-```bash
-# npm
-npm install
+### Screenshot (Página inicial)
 
-# pnpm
-pnpm install
+![Home page](public/github/home.png)
 
-# yarn
-yarn install
+### Screenshot (Fatura atual)
 
-# bun
-bun install
-```
+![Home page](public/github/current-invoice.png)
 
-## Development Server
+## Stack utilizada
 
-Start the development server on `http://localhost:3000`:
+- Nuxt 3
+- ChartJs
+- Typescript
+- Tailwind CSS
 
-```bash
-# npm
-npm run dev
+## Funcionalidades
 
-# pnpm
-pnpm run dev
-
-# yarn
-yarn dev
-
-# bun
-bun run dev
-```
-
-## Production
-
-Build the application for production:
-
-```bash
-# npm
-npm run build
-
-# pnpm
-pnpm run build
-
-# yarn
-yarn build
-
-# bun
-bun run build
-```
-
-Locally preview production build:
-
-```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm run preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+- Autenticação com email/senha.
+- Páginas para visualização e criação de compra.
+- Página de visualização de fatura atual.
+- Página de visualização de uma fatura específica.
+- Página de visualização das proxímas faturas.
+- Gráfico de detalhes da fatura.
+- Pagina de perfil.
