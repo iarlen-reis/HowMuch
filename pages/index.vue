@@ -49,7 +49,7 @@ const auth = useAuthStore();
       <div class="flex items-center justify-end">
         <NuxtLink
           to="/new-entry"
-          class="text-sm md:text-base lg:text-lg hover:underline hover:opacity-85 transition-all"
+          class="flex items-center gap-2 justify-center w-full p-3 rounded text-center text-sm sm:w-[200px] md:text-base sm:p-2.5 bg-zinc-800 text-white hover:opacity-85 transition-opacity"
         >
           <Icon name="ic:outline-plus" font-size="18" />
           Nova compra
